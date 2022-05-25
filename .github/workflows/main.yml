@@ -30,6 +30,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
+steps:
 fortify-sast-fod:
   image: fortifydocker/fortify-ci-tools:3-jdk-8
   variables:
