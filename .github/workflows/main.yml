@@ -13,7 +13,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   
-fortify-sast-fod:
+  jobs:
+  
+  fortify-sast-fod:
   image: fortifydocker/fortify-ci-tools:3-jdk-8
   variables:
     # Update/override PACKAGE_OPTS based on the ScanCentral Client documentation for your project's included tech stack(s). Helpful hints:
@@ -41,3 +43,5 @@ fortify-sast-fod:
     - 'FoDUpload -z package.zip -aurl $FOD_API_URL -purl $FOD_URL -rid "$FOD_RELEASE" -tc "$FOD_TENANT" -uc "$FOD_USERNAME" "$FOD_PAT" $FOD_UPLOADER_OPTS -n "$FOD_NOTES"'
   # Change to false to fail the entire pipeline if the scan fails and/or the result of a scan causes security policy failure (see "-apf" option in FoDUploader documentation)
   allow_failure: true
+  
+
